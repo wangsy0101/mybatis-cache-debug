@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wangsy.dao.ScoreCacheRefDao">
+
+    <!-- cache标签 用于声明这个namespace使用二级缓存 -->
+    <!-- <cache/> -->
+
+    <!-- cache-ref 标签用于声明关联更新的namespace -->
+    <cache-ref namespace="cn.wangsy.dao.StudentDao"/>
+
+    <update id="updateStudentSubjectScore">
+        update t_score set score = #{score}
+        where student_id = #{studentId} and subject_id = #{subjectId}
+    </update>
+</mapper>
